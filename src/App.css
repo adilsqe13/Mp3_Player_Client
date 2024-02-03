@@ -1,5 +1,16 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Dancing+Script&family=Kanit:wght@300&family=Libre+Franklin:wght@100;300;800&family=Protest+Guerrilla&family=Roboto:wght@300&display=swap');
+.protest-guerrilla-regular {
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
 body{
     background-color: black;
+}
+.fonts{
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 .margin-auto {
     margin: auto;
@@ -20,7 +31,7 @@ body{
 
 .dfjeac {
     display: flex;
-    justify-content: end;
+    justify-content:flex-end;
     align-items: center;
 }
 .dfjcat {
