@@ -68,6 +68,7 @@ function App() {
         .then(response => {
           if (response.data.success) {
             window.location.reload();
+            localStorage.setItem('currentAudioIndex', currentAudioIndex + 1)
             setProcessing(false);
           } else {
             setProcessing(false);
@@ -136,7 +137,7 @@ function App() {
         {audios == null && <div className='container dfjcac py-3'><Spinner height='70' width='70' /></div>}
         {audios !== null && (audios.length !== 0 ? audios.map((audio, index) => {
           return (
-            <div key={index} className={`row mt-2 margin-auto py-1 rounded-4 mx-4 border ${index == localStorage.getItem('currentAudioIndex')? 'row-box-shadow': ''}`}>
+            <div key={index} className={`row mt-2 margin-auto py-1 rounded-4 mx-4 border`}>
               <div className="col-lg-6 dfjlac">
                 <div className="row">
                   <div className="col-1">
@@ -145,8 +146,8 @@ function App() {
                   <div className="col-11"><span className='bold'>{audio.fileName}</span></div>
                 </div>
                 </div>
-              <div className="col-lg-6">
-                <div className='dfjeac my-1'>
+              <div className={`col-lg-6 rounded-4 ${index == localStorage.getItem('currentAudioIndex')? 'row-box-shadow': ''}`}>
+                <div className='dfjcac my-1'>
                   <audio className='audio-player' controls id={`${index}`} onPlay={() => { handlePlay(index) }}>
                     <source src={audio.audioUrl} type="audio/mp3" />
                   </audio>
