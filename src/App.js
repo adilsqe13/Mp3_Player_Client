@@ -97,7 +97,7 @@ function App() {
 
   const handlePlay = async (index) => {
     setCurrentAudioIndex(index);
-    if (index != localStorage.getItem('currentAudioIndex')) {
+    if (index !== localStorage.getItem('currentAudioIndex')) {
       localStorage.removeItem('currentPlaybackPosition');
     }
     localStorage.setItem('currentAudioIndex', index);
@@ -122,14 +122,14 @@ function App() {
     <>
       <div className="container min-w-350 margin-top-100 bg-light rounded-4 px-0 pb-5">
         <h1 className='dfjcac bg-danger text-light py-3 btlr-4 btrr-4'>Mp3 Audio Player <span>&nbsp; <FontAwesomeIcon style={{color:'#edda07'}} icon={faCompactDisc} /></span></h1>
-        <div className="row p-3 rounded-2 mb-2 w-75 margin-auto border bg-light border">
+        <div className="row p-3 rounded-2 mb-2 w-75 margin-auto border bg-light border cfubb">
           <div className="col-6 dfjlac">
             <input type="file" id="upload" title="Upload File" onChange={handleFileChange} />
           </div>
           <div className="col-6 dfjeac">
             <span className='text-success bold'>{percentComplete}</span> &nbsp;
-            <button disabled={audioFile == null} className='btn btn-warning' onClick={uploadAudio}>
-              {processing == true ? <Spinner width='20' height='20' /> : 'Upload Audio'}
+            <button disabled={audioFile === null} className='btn btn-warning' onClick={uploadAudio}>
+              {processing === true ? <Spinner width='20' height='20' /> : 'Upload Audio'}
             </button>
           </div>
         </div>
@@ -141,12 +141,12 @@ function App() {
               <div className="col-lg-6 dfjlac">
                 <div className="row">
                   <div className="col-1">
-                  <FontAwesomeIcon style={{color:`${index == localStorage.getItem('currentAudioIndex')? '#edda07': ''}`}} icon={faCompactDisc} />
+                  <FontAwesomeIcon style={{color:`${index.toString() === localStorage.getItem('currentAudioIndex')? '#edda07': ''}`}} icon={faCompactDisc} />
                   </div>
                   <div className="col-11"><span className='bold'>{audio.fileName}</span></div>
                 </div>
                 </div>
-              <div className={`col-lg-6 rounded-4 ${index == localStorage.getItem('currentAudioIndex')? 'row-box-shadow': ''}`}>
+              <div className={`col-lg-6 rounded-4 ${index.toString() === localStorage.getItem('currentAudioIndex')? 'row-box-shadow': ''}`}>
                 <div className='dfjcac my-1'>
                   <audio className='audio-player' controls id={`${index}`} onPlay={() => { handlePlay(index) }}>
                     <source src={audio.audioUrl} type="audio/mp3" />

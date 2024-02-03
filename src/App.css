@@ -41,8 +41,11 @@ body{
 .btrr-4{
     border-top-right-radius: 13px;
 }
+.cfubb{
+    min-width: 350px;
+}
 .min-w-350{
-    min-width: 370px;
+    min-width: 350px;
     width: 65%;
 }
 .audio-player{
